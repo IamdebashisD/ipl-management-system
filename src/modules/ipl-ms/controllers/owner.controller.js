@@ -6,7 +6,6 @@ import ApiResponse from "../../../common/utils/api-response.js"
 const createOwner = async (req, res) => {
     const owner = await ownerService.createOwner(req.body)
     ApiResponse.created(res, "Owner created successfully", owner)
-
 };
  
 const getAllOwners = async (req, res) => {
