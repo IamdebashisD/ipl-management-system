@@ -7,7 +7,7 @@ import * as matchService from "../services/match.service.js"
 const scheduleMatch = async (req, res) => {
     const { teamAId, teamBId, date, venue, status } = req.body
 
-    if (!teamAId || !teamBId || !date || !venue || !status) {
+    if (!teamAId || !teamBId || !date || !venue ) {
         throw ApiError.badRequest(
             "teamAId, teamBId, date and venue are required"
         )
