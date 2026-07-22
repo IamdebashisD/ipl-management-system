@@ -3,7 +3,12 @@ import Match from "../models/match.model.js";
 import Team from "../models/team.model.js"
 
 
-const scheduleMatch = async (teamAId, teamBId, date, venue, status) => {
+const scheduleMatch = async (
+    teamAId, 
+    teamBId, 
+    date, 
+    venue
+) => {
 
     if (teamAId === teamBId) {
         throw ApiError.badRequest(
@@ -26,6 +31,7 @@ const scheduleMatch = async (teamAId, teamBId, date, venue, status) => {
 
     const endOfDay = new Date(date)
     endOfDay.setHours(23, 59, 59, 999)
+
 
     const existingMatch = await Match.findOne({ 
         date: {
