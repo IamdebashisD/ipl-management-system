@@ -13,7 +13,7 @@ const scheduleMatch = async (req, res) => {
         )
     }
 
-    const match = await matchService.scheduleMatch(teamAId, teamBId, date, venue, status)
+    const match = await matchService.scheduleMatch(teamAId, teamBId, date, venue, status = 'scheduled')
 
     ApiResponse.created(
         res,
