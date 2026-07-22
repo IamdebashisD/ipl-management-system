@@ -3,12 +3,7 @@ import Match from "../models/match.model.js";
 import Team from "../models/team.model.js"
 
 
-const scheduleMatch = async (
-    teamAId, 
-    teamBId, 
-    date, 
-    venue
-) => {
+const scheduleMatch = async (teamAId, teamBId, date, venue, status = 'scheduled') => {
 
     if (teamAId === teamBId) {
         throw ApiError.badRequest(
@@ -50,7 +45,8 @@ const scheduleMatch = async (
         teamA: teamAId,
         teamB: teamBId,
         date,
-        venue: venue.trim()
+        venue: venue.trim(),
+        status
     })
 
     return match
